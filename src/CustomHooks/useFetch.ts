@@ -9,6 +9,6 @@ export const useFetch = async (url: string) => {
   }
 
   const data: currentLocationType | CountryData[] = await response.json();
-  console.log("Fetch");
+
   return data;
 };

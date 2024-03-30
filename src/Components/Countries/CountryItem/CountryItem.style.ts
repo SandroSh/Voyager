@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const CountryContainer = styled.div`
   max-width: 300px;
-  max-height: 350px;
+  height: 320px;
+  
   width: 100%;
   margin: 20px;
   border-radius: 10px;

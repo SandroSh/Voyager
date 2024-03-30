@@ -8,7 +8,7 @@ export const CountryItem = ({curCountry}:curCountry) => {
         <ImagesDiv>
             <img src={curCountry.flags.png} alt="Country Flag" />
         </ImagesDiv>
-        <h3>{curCountry.name.official}</h3>
+        <h3>{curCountry.name.common}</h3>
         <ButtonsDiv>
             <button>Select Country</button>
             <button>See Details</button>

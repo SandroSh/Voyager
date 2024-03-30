@@ -54,3 +54,7 @@ export type currentLocationType = {
 export interface curCountry {
   curCountry: CountryData;
 }
+
+export interface currentCountry{
+  currentCountry : CountryData | undefined;
+}
