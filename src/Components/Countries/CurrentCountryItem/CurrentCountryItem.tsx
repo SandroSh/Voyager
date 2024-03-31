@@ -1,19 +1,22 @@
-import {  currentCountry} from "../../../types"
-import { MainContainer, ImgContainer, ButtonsContainer  } from "./CurrentCountryItem.style"
+import { currentCountry } from "../../../types"
+import { OuterContainer,  MainContainer, LeftContainer, ButtonsContainer } from "./CurrentCountryItem.style"
 
 
-export const CurrentCountryItem = ({currentCountry}: currentCountry) => {
-   
-  return (
-    <MainContainer>
-        <ImgContainer>
-            <img src={currentCountry?.flags.png} alt="Flag" />
-        </ImgContainer>
-        <ButtonsContainer>
-            <h3>{currentCountry?.name.common}</h3>
-            <button>Select Country</button>
-            <button>See Details</button>
-        </ButtonsContainer>
-    </MainContainer>
-  )
+export const CurrentCountryItem = ({ currentCountry }: currentCountry) => {
+
+    return (
+        <OuterContainer>  
+            <h1>Currrent Location</h1>
+            <MainContainer>
+                <img src={currentCountry?.flags.png} alt="Flag" />
+                <LeftContainer>
+                    <h2>{currentCountry?.name.common}</h2>
+                    <ButtonsContainer>
+                        <button>Select Country</button>
+                        <button>See Details</button>
+                    </ButtonsContainer>
+                </LeftContainer>
+            </MainContainer>
+        </OuterContainer>
+    )
 }

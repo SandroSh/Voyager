@@ -24,15 +24,14 @@ export const useGeoLocation = () => {
   const onError = (error: error) => {
     setTimeout(() => {
       setLoaction({
-      loaded: true,
-      coordinates: null,
-      error: {
-        code: error.code,
-        message: error.message,
-      },
-    });
-    },1000);
-    
+        loaded: true,
+        coordinates: null,
+        error: {
+          code: error.code,
+          message: error.message,
+        },
+      });
+    }, 1000);
   };
 
   useEffect(() => {

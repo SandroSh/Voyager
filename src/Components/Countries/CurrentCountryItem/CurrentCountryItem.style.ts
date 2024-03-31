@@ -1,27 +1,48 @@
 import styled from "styled-components";
-
-export const MainContainer = styled.div`
-  width:320px;
-  height:270px;
+export const OuterContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+
+
+  h1 {
+    margin-bottom:10px; 
+    color:${(props) => props.theme.darkBlue};
+  }
 `;
 
+export const MainContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 
-export const ImgContainer = styled.div`
-  width:60%;
-  height:100%;
-  img{
-    width:100%;
-    aspect-ratio:1;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${(props) => props.theme.darkBlue};
+  border-radius: 5px;
+  img {
+    border-radius: 5px 0 0 5px;
+    height: inherit;
+  }
+`;
+
+export const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  h2 {
+    color: white;
   }
 `;
 export const ButtonsContainer = styled.div`
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-self: space-evenly;
+  margin-top: 50px;
+  button {
+    margin: 10px;
+    padding: 5px;
+  }
 `;
-

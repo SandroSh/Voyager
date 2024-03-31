@@ -22,7 +22,7 @@ export const Countries = () => {
     queryFn: () => useFetch(locationUrl),
     queryKey: ['CurrentLocation'],
     enabled: !!currentLocation,
-
+    initialData: []
   });
   const { data: dataOfCountries } = useQuery({
     queryFn: () => useFetch(countriesUrl),
@@ -32,18 +32,21 @@ export const Countries = () => {
   });
 
   useEffect(() => {
-    if (locationData) {
-      setCurrentCountryLocation(locationData as currentLocationType);
-    }
+
     if (dataOfCountries) {
 
       setCountries([...dataOfCountries as CountryData[]]);
     }
-    setCurrentCountry(countries?.find(item => currentCountryLocation?.countryName === item.name.official))
 
   }, [dataOfCountries])
 
+  useEffect(() => {
+    if (locationData) {
+      setCurrentCountryLocation(locationData as currentLocationType);
+    }
+    setCurrentCountry(countries?.find(item => currentCountryLocation?.countryName === item.name.official))
 
+  }, [locationData, currentCountry, currentCountryLocation])
 
 
   return (
@@ -51,14 +54,12 @@ export const Countries = () => {
       <UpperContainer>
         <SearchInput />
         {
-          currentCountry ? 
-            // <UpperImage src={UpperPhoto} alt="Location Icon"/>
+          currentCountry ?
             <CurrentCountryItem currentCountry={currentCountry} />
             :
-            <h1>Not Avilable</h1>
-
+            null
         }
-      </UpperContainer> 
+      </UpperContainer>
       <CountryItemsContainer>
         {searchedCountry.value != "" ?
           countries?.filter(item => item.name.common.toLocaleLowerCase().includes(searchedCountry.value.toLocaleLowerCase())).map((country, index) => <CountryItem curCountry={country} key={index} />)
