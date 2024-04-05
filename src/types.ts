@@ -58,3 +58,4 @@ export interface curCountry {
 export interface currentCountry{
   currentCountry : CountryData | undefined;
 }
+export type countryDetails ={ countryDetails: curCountry}

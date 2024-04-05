@@ -9,7 +9,7 @@ import { SearchInput } from "../SearchInput/SearchInput";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { CurrentCountryItem } from "./CurrentCountryItem/CurrentCountryItem";
-
+import Image from '../../assets/zep.svg'
 export const Countries = () => {
   const currentLocation = useGeoLocation();
   const [currentCountryLocation, setCurrentCountryLocation] = useState<currentLocationType>();
@@ -57,7 +57,7 @@ export const Countries = () => {
           currentCountry ?
             <CurrentCountryItem currentCountry={currentCountry} />
             :
-            null
+            <img src={Image} alt="Voyager Image" />
         }
       </UpperContainer>
       <CountryItemsContainer>
