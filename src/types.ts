@@ -33,8 +33,10 @@ export type CountryData  = {
     maps:{
       googleMaps:string;
     }
-    continents: string[];
-    gini:{};
+
+    gini:{
+      [key: number]:number;
+    };
     timezones: string[];
     flags:{
       png:string;
@@ -59,3 +61,10 @@ export interface currentCountry{
   currentCountry : CountryData | undefined;
 }
 export type countryDetails ={ countryDetails: curCountry}
+
+
+
+export type BoolElementType = {
+  title:string;
+  bool:boolean | undefined;
+}

@@ -11,10 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SelectingImport } from './routes/selecting'
 import { Route as CountryDetailsImport } from './routes/countryDetails'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const SelectingRoute = SelectingImport.update({
+  path: '/selecting',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const CountryDetailsRoute = CountryDetailsImport.update({
   path: '/countryDetails',
@@ -38,6 +44,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CountryDetailsImport
       parentRoute: typeof rootRoute
     }
+    '/selecting': {
+      preLoaderRoute: typeof SelectingImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -46,6 +56,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   CountryDetailsRoute,
+  SelectingRoute,
 ])
 
 /* prettier-ignore-end */

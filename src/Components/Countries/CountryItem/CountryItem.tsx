@@ -10,7 +10,10 @@ import { setValue } from '../../../state/curCountry/curCountrySlice';
 export const CountryItem = ({ curCountry }: curCountry) => {
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(setValue(curCountry));
+    if (curCountry) {
+
+      dispatch(setValue(Object.assign(curCountry)));
+    }
   }
   return (
     <CountryContainer>
@@ -19,7 +22,7 @@ export const CountryItem = ({ curCountry }: curCountry) => {
       </ImagesDiv>
       <h3>{curCountry.name.common}</h3>
       <ButtonsDiv>
-        <button>Select Country</button>
+        <Link to='/selecting' ><button>Select Country</button></Link>
         <Link to='/countryDetails'><button onClick={handleClick}>See Details</button></Link>
       </ButtonsDiv>
     </CountryContainer>

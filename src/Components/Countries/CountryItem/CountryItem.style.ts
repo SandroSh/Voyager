@@ -28,6 +28,7 @@ export const ButtonsDiv = styled.div`
     border-radius: 3px;
     background-color: white;
     color: ${(props) => props.theme.darkBlue};
+    cursor: pointer;
   }
 `;
 

@@ -5,6 +5,7 @@ export const CountryItemsContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  
 `;
 
 export const UpperContainer = styled.div`
@@ -13,6 +14,7 @@ export const UpperContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin:70px 0;
+ 
 `;
 
 
