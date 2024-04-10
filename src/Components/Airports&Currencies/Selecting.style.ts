@@ -1,9 +1,8 @@
 import styled, { css } from "styled-components";
-import CurrencyImage from "../../assets/currencyExchange.png";
-import AirportImage from "../../assets/Airports.png";
+import Cities from "../../assets/Cities.svg";
+import AirportImage from "../../assets/Airports.svg";
 
 const size = css`
-  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -11,19 +10,19 @@ const size = css`
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  background-position: right;
   h1 {
     font-size: 3em;
     color: white;
+
     visibility: hidden;
   }
   &:hover {
-    h1 {
-      visibility: visible;
-      filter: brightness(150%) !important;
-    }
     transition: 1.5s;
-    filter: brightness(50%);
     transform: scale(1.1);
+    h1{
+      visibility:visible;
+    }
   }
 `;
 
@@ -31,18 +30,19 @@ export const MainDiv = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   overflow: hidden;
-  
+
+ 
+ 
 `;
 
 export const LeftDiv = styled.div`
   ${size}
-  background-image: url(${CurrencyImage});
+  background-image: url(${Cities});
 `;
 
 export const RightDiv = styled.div`
   ${size}
   background-image: url(${AirportImage});
-  background-position: bottom;
 `;

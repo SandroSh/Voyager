@@ -21,7 +21,7 @@ export const CurrentCountryItem = ({ currentCountry }: currentCountry) => {
                 <LeftContainer>
                     <h2>{currentCountry?.name.common}</h2>
                     <ButtonsContainer>
-                        <Link to='/selecting' ><button>Select Country</button></Link>
+                        <Link to='/selecting' ><button onClick={handleClick}>Select Country</button></Link>
                         <Link to='/countryDetails' ><button onClick={handleClick}> See Details </button></Link>
                     </ButtonsContainer>
                 </LeftContainer>

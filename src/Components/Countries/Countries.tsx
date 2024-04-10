@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGeoLocation } from "../../CustomHooks/useGeoLocation"
-import { CountryItemsContainer, UpperContainer, UpperImage } from "./Countries.style"
+import { CountryItemsContainer, UpperContainer } from "./Countries.style"
 import { CountryItem } from "./CountryItem/CountryItem"
 import { useFetch } from "../../CustomHooks/useFetch";
 import { CountryData, currentLocationType } from "../../types";
@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { CurrentCountryItem } from "./CurrentCountryItem/CurrentCountryItem";
 import Image from '../../assets/zep.svg'
+
 export const Countries = () => {
   const currentLocation = useGeoLocation();
   const [currentCountryLocation, setCurrentCountryLocation] = useState<currentLocationType>();
@@ -19,13 +20,13 @@ export const Countries = () => {
   const countriesUrl = "https://restcountries.com/v3.1/all";
   const searchedCountry = useSelector((state: RootState) => state.search);
   const { data: locationData } = useQuery({
-    queryFn: () => useFetch(locationUrl),
+    queryFn: () => useFetch(locationUrl, null),
     queryKey: ['CurrentLocation'],
     enabled: !!currentLocation,
     initialData: []
   });
   const { data: dataOfCountries } = useQuery({
-    queryFn: () => useFetch(countriesUrl),
+    queryFn: () => useFetch(countriesUrl, null),
     queryKey: ['countries'],
     enabled: !!countries,
     initialData: []
@@ -51,6 +52,7 @@ export const Countries = () => {
 
   return (
     <div>
+      
       <UpperContainer>
         <SearchInput />
         {
@@ -72,3 +74,38 @@ export const Countries = () => {
     </div>
   )
 }
+
+
+
+// import React from "react";
+// import { CountryItemsContainer, UpperContainer, UpperImage } from "./Countries.style";
+// import { CountryItem } from "./CountryItem/CountryItem";
+// import { CurrentCountryItem } from "./CurrentCountryItem/CurrentCountryItem";
+// import Image from "../../assets/zep.svg";
+// import { useCountries } from "./UseCountries";
+// import { SearchInput } from "../SearchInput/SearchInput";
+
+// export const Countries = () => {
+//   const { countries, currentCountry } = useCountries();
+
+//   return (
+//     <div>
+//       <UpperContainer>
+//         <SearchInput />
+//         {currentCountry ? (
+//           <CurrentCountryItem currentCountry={currentCountry} />
+//         ) : (
+//           <img src={Image} alt="Voyager Image" />
+//         )}
+//       </UpperContainer>
+//       <CountryItemsContainer>
+//       {searchedCountry.value != "" ?
+//           countries?.filter(item => item.name.common.toLocaleLowerCase().includes(searchedCountry.value.toLocaleLowerCase())).map((country, index) => <CountryItem curCountry={country} key={index} />)
+//           :
+//           countries?.map((item, index) => {
+//             return <CountryItem curCountry={item} key={index} />
+//           })}
+//       </CountryItemsContainer>
+//     </div>
+//   );
+// };

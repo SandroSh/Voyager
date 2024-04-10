@@ -9,6 +9,12 @@ export const OuterContainer = styled.div`
     margin-bottom:10px; 
     color:${(props) => props.theme.darkBlue};
   }
+  @media (max-width: 500px) {
+    margin-top:20px;
+    h1{
+      font-size:20px;
+    }
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -23,6 +29,13 @@ export const MainContainer = styled.div`
     border-radius: 5px 0 0 5px;
     height: inherit;
   }
+
+  @media (max-width: 500px) {
+    width:80%;
+    img{
+      width:100%;
+    }
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -34,6 +47,11 @@ export const LeftContainer = styled.div`
   h2 {
     color: white;
   }
+  @media (max-width: 500px) {
+    width:100%;
+
+   
+  }
 `;
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -41,9 +59,18 @@ export const ButtonsContainer = styled.div`
   justify-content: space-between;
   justify-self: space-evenly;
   margin-top: 50px;
+  margin-right:14px;
   button {
+    width:100%;
     margin: 10px;
     padding: 5px;
     cursor: pointer;
+    background-color:white;
+    outline:none;
+    border:none;
+    border-radius:2px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 20px;
   }
 `;

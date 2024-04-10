@@ -22,7 +22,7 @@ export const CountryItem = ({ curCountry }: curCountry) => {
       </ImagesDiv>
       <h3>{curCountry.name.common}</h3>
       <ButtonsDiv>
-        <Link to='/selecting' ><button>Select Country</button></Link>
+        <Link to='/selecting' ><button onClick={handleClick}>Select Country</button></Link>
         <Link to='/countryDetails'><button onClick={handleClick}>See Details</button></Link>
       </ButtonsDiv>
     </CountryContainer>

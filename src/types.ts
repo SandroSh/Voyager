@@ -17,6 +17,7 @@ export type CountryData  = {
       common:string;
       official:string;
     }
+    cca2:string;
     cca3:string;
     independent: boolean;
     unMember:boolean;
@@ -67,4 +68,18 @@ export type countryDetails ={ countryDetails: curCountry}
 export type BoolElementType = {
   title:string;
   bool:boolean | undefined;
+}
+
+export interface CountryAir{
+  name:string;
+  iata:string;
+  city:string;
+  region:string;
+  country:string;
+  elevation_ft:string;
+  
+}
+
+export type AirData = {
+   airData: CountryData | CountryAir;
 }
