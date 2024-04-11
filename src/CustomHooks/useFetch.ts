@@ -1,4 +1,4 @@
-import { CountryAir, CountryData, currentLocationType } from "../types";
+import { City, CountryAir, CountryData, currentLocationType } from "../types";
 export const useFetch = async (url: string, apiKey: string | null) => {
   let response;
   if (!apiKey) {
@@ -15,7 +15,7 @@ export const useFetch = async (url: string, apiKey: string | null) => {
     throw new Error(`Error fetching users: ${response.status}`);
   }
 
-  const data: currentLocationType | CountryData[] | CountryAir[] = await response.json();
+  const data: currentLocationType | CountryData[] | CountryAir[] | City[] = await response.json();
 
   return data;
 };

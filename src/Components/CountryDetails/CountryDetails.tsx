@@ -19,7 +19,7 @@ export const CountryDetails = () => {
       </TitleContainer>
       <ImagesContainer>
         <img src={countryData?.flags.png} alt="Country Image" />
-        <img src={countryData?.coatOfArms.svg} alt="Country coat of arms" />
+        <img src={countryData?.coatOfArms.png} alt="Country coat of arms" />
       </ImagesContainer>
       <BigInfoContainer>
           <InnerContainer>

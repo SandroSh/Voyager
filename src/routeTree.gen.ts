@@ -12,8 +12,8 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SelectingImport } from './routes/selecting'
-import { Route as CurrencyImport } from './routes/currency'
 import { Route as CountryDetailsImport } from './routes/countryDetails'
+import { Route as CitiesImport } from './routes/cities'
 import { Route as AirportImport } from './routes/airport'
 import { Route as IndexImport } from './routes/index'
 
@@ -24,13 +24,13 @@ const SelectingRoute = SelectingImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const CurrencyRoute = CurrencyImport.update({
-  path: '/currency',
+const CountryDetailsRoute = CountryDetailsImport.update({
+  path: '/countryDetails',
   getParentRoute: () => rootRoute,
 } as any)
 
-const CountryDetailsRoute = CountryDetailsImport.update({
-  path: '/countryDetails',
+const CitiesRoute = CitiesImport.update({
+  path: '/cities',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -56,12 +56,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AirportImport
       parentRoute: typeof rootRoute
     }
-    '/countryDetails': {
-      preLoaderRoute: typeof CountryDetailsImport
+    '/cities': {
+      preLoaderRoute: typeof CitiesImport
       parentRoute: typeof rootRoute
     }
-    '/currency': {
-      preLoaderRoute: typeof CurrencyImport
+    '/countryDetails': {
+      preLoaderRoute: typeof CountryDetailsImport
       parentRoute: typeof rootRoute
     }
     '/selecting': {
@@ -76,8 +76,8 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   AirportRoute,
+  CitiesRoute,
   CountryDetailsRoute,
-  CurrencyRoute,
   SelectingRoute,
 ])
 

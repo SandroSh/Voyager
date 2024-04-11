@@ -5,7 +5,7 @@ import { MainDiv, LeftDiv, RightDiv } from "./Selecting.style"
 export const Selecting = () => {
   return (
     <MainDiv>
-      <Link to="/currency" style={{ width: "100%", height:'100%', textDecoration:'none'}}>
+      <Link to="/cities" style={{ width: "100%", height:'100%', textDecoration:'none'}}>
         <LeftDiv>
           <h1>Cities</h1>
         </LeftDiv>

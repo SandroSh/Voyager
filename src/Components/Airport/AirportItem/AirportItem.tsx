@@ -3,8 +3,8 @@ import LocationIcon from '../../../assets/LocationCity.svg'
 import SeaLevelIcon from '../../../assets/SeaLevelIcon.svg'
 import { AirData, CountryAir } from "../../../types"
 
-export const AirportItem = ({airData}:AirData) => {
-  const myData = airData as CountryAir;
+export const AirportItem = ({Data}:AirData) => {
+  const myData = Data as CountryAir;
   return (
 
   <MainDiv>

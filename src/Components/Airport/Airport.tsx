@@ -9,21 +9,21 @@ import { Link } from "@tanstack/react-router"
 import { useEffect, useState } from "react"
 import toast, { Toaster } from "react-hot-toast"
 import { setValue } from "../../state/curCountry/curCountrySlice"
+
 export const Airport = () => {
   const countryData = useSelector((state: RootState) => state.currentCountry.value);
-  const[count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
-  const { data } = useQuery({
+  const { data} = useQuery({
     queryFn: () => useFetch(`https://api.api-ninjas.com/v1/airports?country=${countryData?.cca2}`, "TQY/+Pzty+IWjVk7h4OYWA==Go9neSHewYs91nBu"),
     queryKey: ["airports"],
     enabled: !!countryData,
     initialData: [],
   })
 
-
   useEffect(() => {
-    setCount(() => count +1);
-    console.log(count);
+    setCount(() => count + 1);
+
     if (Array.isArray(data) && count === 1) {
       setCount(() => 0)
       if (data.length == 0) {
@@ -33,7 +33,6 @@ export const Airport = () => {
       }
     }
 
-
   }, [data]);
   const handleClick = () => {
     dispatch(setValue(undefined));
@@ -42,6 +41,7 @@ export const Airport = () => {
   return (
     <MainContainer>
       <Toaster />
+
       <UpperDiv>
         <Link to="/"><img src={MainLogo} alt="Logo icon" onClick={handleClick} /></Link>
         <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
@@ -49,13 +49,16 @@ export const Airport = () => {
 
         </div>
       </UpperDiv>
+
       {Array.isArray(data) ?
-        data.map((item, index) => <AirportItem airData={item} key={index} />)
+        data.map((item, index) => <AirportItem Data={item} key={index} />)
         :
         "Airports are not Avialable in this Country"
 
       }
 
     </MainContainer>
+
+
   )
 }

@@ -31,10 +31,7 @@ export type CountryData  = {
     latlng:number[];
     area:number;
     population:number;
-    maps:{
-      googleMaps:string;
-    }
-
+ 
     gini:{
       [key: number]:number;
     };
@@ -44,6 +41,7 @@ export type CountryData  = {
     }
     coatOfArms:{
       svg:string;
+      png:string;
     }
     startOfWeek:string;
 
@@ -81,5 +79,11 @@ export interface CountryAir{
 }
 
 export type AirData = {
-   airData: CountryData | CountryAir;
+   Data: CountryData | CountryAir | City;
+}
+
+export interface City {
+  name:string;
+  population:number;
+  is_capital: boolean;
 }

@@ -49,7 +49,6 @@ export const Countries = () => {
 
   }, [locationData, currentCountry, currentCountryLocation])
 
-
   return (
     <div>
       
@@ -63,7 +62,7 @@ export const Countries = () => {
         }
       </UpperContainer>
       <CountryItemsContainer>
-        {searchedCountry.value != "" ?
+        {searchedCountry.value ?
           countries?.filter(item => item.name.common.toLocaleLowerCase().includes(searchedCountry.value.toLocaleLowerCase())).map((country, index) => <CountryItem curCountry={country} key={index} />)
           :
           countries?.map((item, index) => {
@@ -75,37 +74,3 @@ export const Countries = () => {
   )
 }
 
-
-
-// import React from "react";
-// import { CountryItemsContainer, UpperContainer, UpperImage } from "./Countries.style";
-// import { CountryItem } from "./CountryItem/CountryItem";
-// import { CurrentCountryItem } from "./CurrentCountryItem/CurrentCountryItem";
-// import Image from "../../assets/zep.svg";
-// import { useCountries } from "./UseCountries";
-// import { SearchInput } from "../SearchInput/SearchInput";
-
-// export const Countries = () => {
-//   const { countries, currentCountry } = useCountries();
-
-//   return (
-//     <div>
-//       <UpperContainer>
-//         <SearchInput />
-//         {currentCountry ? (
-//           <CurrentCountryItem currentCountry={currentCountry} />
-//         ) : (
-//           <img src={Image} alt="Voyager Image" />
-//         )}
-//       </UpperContainer>
-//       <CountryItemsContainer>
-//       {searchedCountry.value != "" ?
-//           countries?.filter(item => item.name.common.toLocaleLowerCase().includes(searchedCountry.value.toLocaleLowerCase())).map((country, index) => <CountryItem curCountry={country} key={index} />)
-//           :
-//           countries?.map((item, index) => {
-//             return <CountryItem curCountry={item} key={index} />
-//           })}
-//       </CountryItemsContainer>
-//     </div>
-//   );
-// };
