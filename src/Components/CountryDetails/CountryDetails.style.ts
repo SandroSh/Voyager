@@ -6,6 +6,7 @@ export const ParentContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.theme.darkBlue};
+  min-height: 100vh;
 `;
 
 export const TitleContainer = styled.div`
@@ -18,7 +19,7 @@ export const TitleContainer = styled.div`
   color: white;
   img {
     &:hover {
-      transition:0.3s;
+      transition: 0.3s;
       transform: scale(0.9);
     }
   }
@@ -33,6 +34,7 @@ export const ImagesContainer = styled.div`
   img {
     border-radius: 5px;
     width: 300px;
+    margin-top: 50px;
   }
 `;
 
@@ -43,6 +45,9 @@ export const BigInfoContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  @media (max-width: 450px) {
+    padding: 20%;
+  }
 `;
 export const InnerContainer = styled.div`
   display: flex;
@@ -54,19 +59,16 @@ export const InnerContainer = styled.div`
   li {
     list-style-type: none;
     margin: 15px;
-    
   }
 `;
 
 export const BooleanInfosContainer = styled.div`
   width: 100%;
-  margin:30px 0;
-  color:white;
+  margin: 30px 0;
+  color: white;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  padding: 10%;
 `;
-
-
-

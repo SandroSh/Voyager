@@ -17,13 +17,11 @@ export const Cities = () => {
     initialData: []
   })
 
-  const handleClick = () => {
 
-  }
   return (
     <MainContainer>
       <TitleDiv>
-        <Link to="/"><img src={MainLogo} alt="Logo icon" onClick={handleClick} /></Link>
+        <Link to="/"><img src={MainLogo} alt="Logo icon" /></Link>
         <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
           <h1> {selectedCountryData?.name ? `Cities of ${selectedCountryData?.name.common}` : null}</h1>
         </div>

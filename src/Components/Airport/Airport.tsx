@@ -14,7 +14,7 @@ export const Airport = () => {
   const countryData = useSelector((state: RootState) => state.currentCountry.value);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
-  const { data} = useQuery({
+  const { data } = useQuery({
     queryFn: () => useFetch(`https://api.api-ninjas.com/v1/airports?country=${countryData?.cca2}`, "TQY/+Pzty+IWjVk7h4OYWA==Go9neSHewYs91nBu"),
     queryKey: ["airports"],
     enabled: !!countryData,
@@ -49,13 +49,15 @@ export const Airport = () => {
 
         </div>
       </UpperDiv>
+      {
 
-      {Array.isArray(data) ?
-        data.map((item, index) => <AirportItem Data={item} key={index} />)
-        :
-        "Airports are not Avialable in this Country"
+        Array.isArray(data) ?
+          data.map((item, index) => <AirportItem Data={item} key={index} />)
+          :
+          "Airports are not Avialable in this Country"
 
       }
+
 
     </MainContainer>
 

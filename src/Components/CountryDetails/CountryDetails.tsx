@@ -7,7 +7,6 @@ import { BoolElement } from "./BoolElement/BoolElement";
 
 export const CountryDetails = () => {
   const countryData = useSelector((state: RootState) => state.currentCountry.value);
-  console.log(countryData);
 
   return (
 
